@@ -1,0 +1,14 @@
+---
+title: "Report"
+author: "Xinyu Zhang"
+date: "2022-10-31"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Random Forest
+
+![Picture 1](figures/randomforest_varimp.png)
