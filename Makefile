@@ -6,7 +6,7 @@ clean:
 .created-dirs:
 	mkdir -p figures
 
-# figures 
+# figures
 figures/randomforest_varimp.png: model.R source_data/african_crises.csv
 	Rscript model.R
 

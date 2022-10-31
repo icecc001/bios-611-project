@@ -1,4 +1,4 @@
-# Project Outline: Africa Economic, Banking and Systemic Crisis
+# README: Africa Economic, Banking and Systemic Crisis
 
 ## Data
 
@@ -17,3 +17,40 @@
 
 - Studying possible factors that generate systematic crisis is quite important. For developing countries, those study might help policy-makers implement better policies when systematic crisis is about to happen.
 - Studying historical data on africa economic, banking and systematic crsis may help us predict future crisis.
+
+## Using this Repository
+
+This repository can be built by Docker. This command will create a docker container. 
+
+```bash
+docker build -t 611-project-africa .
+```
+
+Then we can start our customized container with the following command
+
+```bash
+docker run -v $(pwd):/home/rstudio\
+           -p 8787:8787\
+           -e PASSWORD=yourpassword\
+           -it 611-project-africa
+```
+
+## What to Look at
+
+The following command generate the final report:
+
+```bash
+make report.pdf
+```
+
+If you want to generate a specific result, you can also do so by entering the following command:
+
+```bash
+make figures/randomforest_varimp.png
+```
+
+## Result
+
+### Random Forest
+
+![randomforest_varimp](figures/randomforest_varimp.png)
