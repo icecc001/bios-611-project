@@ -1,4 +1,4 @@
-setwd("/Users/zxy/Desktop/BIOS611/bios-611-project")
+#setwd("/Users/zxy/Desktop/BIOS611/bios-611-project")
 library(tidyverse)
 library(dplyr)
 library(randomForest)
