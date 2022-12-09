@@ -19,7 +19,7 @@ Since the last century, African countries have gained independence one after ano
 
 - This project also builds a system based on the random forest model to predict the potential systemic risk in the 13 African countries. 
 
-![risk_prediction_system](/Users/zxy/Desktop/BIOS611/bios-611-project/risk_prediction_system.png)
+![risk_prediction_system](risk_prediction_system.png)
 
 ## Using this Repository
 
