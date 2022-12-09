@@ -2,44 +2,24 @@
 
 Author: Xinyu Zhang
 
-Last Revision Date: 2022/11/07
+Last Revision Date: 2022/12/08
 
-## Data
+## Introduction
 
-- In this project, we use data data on economic and financial crises in 13 African countries (1860 to 2014).  (It is inspired by https://www.kaggle.com/datasets/chirin/africa-economic-banking-and-systemic-crisis-data)
-
-- This dataset is a derivative of Reinhart et. al's Global Financial Stability dataset which can be found online at: https://www.hbs.edu/behavioral-finance-and-financial-stability/data/Pages/global.aspx
-
-- The dataset specifically focuses on the Banking, Debt, Financial, Inflation and Systemic Crises that occurred, from 1860 to 2014, in 13 African countries, including: Algeria, Angola, Central African Republic, Ivory Coast, Egypt, Kenya, Mauritius, Morocco, Nigeria, South Africa, Tunisia, Zambia and Zimbabwe.
-
-- The dataset contains 14 variables:
-
-  | Variable Name                   | Meaning                                                      |
-  | ------------------------------- | ------------------------------------------------------------ |
-  | case                            | A number which denotes a specific country                    |
-  | cc3                             | A three letter country code                                  |
-  | country                         | The name of the country                                      |
-  | year                            | The year of the observation                                  |
-  | systemetic_crisis               | "0" means that no systemic crisis occurred in the year and "1" means that a systemic crisis occurred in the year. |
-  | exch_usd                        | The exchange rate of the country vis-a-vis the USD           |
-  | domestic_debt_in_default        | "0" means that no sovereign domestic debt default occurred in the year and "1" means that a sovereign domestic debt |
-  | sovereign_external_debt_default | "0" means that no sovereign external debt default occurred in the year and "1" means that a sovereign external debt default occurred in the |
-  | gdp_weighted_default            | The total debt in default vis-a-vis the GDP                  |
-  | inflation_annual_cpi            | The annual CPI Inflation rate                                |
-  | independence                    | "0" means "no independence" and "1" means "independence"     |
-  | currency_crises                 | "0" means that no currency crisis occurred in the year and "1" means that a currency crisis occurred in the year |
-  | inflation_crises                | "0" means that no inflation crisis occurred in the year and "1" means that an inflation crisis occurred in the year |
-  | banking_crisis                  | "no_crisis" means that no banking crisis occurred in the year and "crisis" means that a banking crisis occurred in the year |
-
-- ### Acknowledgements
-
-  Reinhart, C., Rogoff, K., Trebesch, C. and Reinhart, V. (2019) Global Crises Data by Country.
-  [online] https://www.hbs.edu/behavioral-finance-and-financial-stability/data. Available at: https://www.hbs.edu/behavioral-finance-and-financial-stability/data/Pages/global.aspx [Accessed: 17 July 2019].
+Since the last century, African countries have gained independence one after another. In their quest for economic development, some countries have also encountered systemic economic crises during certain years.
 
 ## Motivation
 
 - Studying possible factors that generate systematic crisis is quite important. For developing countries, those study might help policy-makers implement better policies when systematic crisis is about to happen.
-- Studying historical data on africa economic, banking and systematic crsis may help us predict future crisis.
+- Studying historical data on Africa economic, banking and systematic crisis may help us predict future crisis.
+
+## A Quick View of Results
+
+- This project builds a model to predict the risk of having systemic crisis based for 13 African countries and evaluate the importance of exlanatory variables. 
+
+- This project also builds a system based on the random forest model to predict the potential systemic risk in the 13 African countries. 
+
+![risk_prediction_system](/Users/zxy/Desktop/BIOS611/bios-611-project/risk_prediction_system.png)
 
 ## Using this Repository
 
@@ -54,17 +34,12 @@ Then we can start our customized container with the following command
 ```bash
 docker run -v $(pwd):/home/rstudio\
            -p 8787:8787\
+           -p 8080:8080\
            -e PASSWORD=yourpassword\
            -it 611-project-africa
 ```
 
 ## What to Look at
-
-The following command generate the final report:
-
-```bash
-make report.pdf
-```
 
 If you want to generate a specific result, you can also do so by entering the following command:
 
@@ -72,8 +47,21 @@ If you want to generate a specific result, you can also do so by entering the fo
 make figures/randomforest_varimp.png
 ```
 
-## Result
+The following command generate the final report (you need to first generate the results included in the report):
 
-### Random Forest
+```bash
+make report.pdf
+```
 
-![randomforest_varimp](figures/randomforest_varimp.png)
+You can use shiny to view our prediction of risk of systemic crisis in 13 African countries interactively (you can open the shiny website on [http://localhost:8080](http://localhost:8080/)):
+
+```bash
+make shiny
+```
+
+You can use the checkboxes on the left hand side to generate different predictions.
+
+## Acknowledgement
+
+Reinhart, C., Rogoff, K., Trebesch, C. and Reinhart, V. (2019) Global Crises Data by Country.
+[online] https://www.hbs.edu/behavioral-finance-and-financial-stability/data. Available at: https://www.hbs.edu/behavioral-finance-and-financial-stability/data/Pages/global.aspx [Accessed: 17 July 2019].
